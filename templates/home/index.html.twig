@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Mon Blog{% endblock %}
+
+{% block body %}
+
+<!-- Hero Section -->
+<div style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); color: white; padding: 80px 0; margin: -1rem -15px 0; border-radius: 0 0 20px 20px;">
+    <div class="container text-center">
+        <h1 style="font-size: 3rem; font-weight: 800;">Mon Blog</h1>
+        <p style="font-size: 1.3rem; opacity: 0.8; margin: 20px 0;">Actualités, conseils et articles rédigés avec passion</p>
+        <a href="/article" class="btn btn-warning btn-lg me-3 px-5" style="border-radius: 30px; font-weight: 700;">Lire les articles</a>
+        {% if not app.user %}
+        <a href="/register" class="btn btn-outline-light btn-lg px-5" style="border-radius: 30px;">Rejoindre la communauté</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Cards Section -->
+<div class="container mt-5">
+    <div class="row text-center mb-5">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow" style="border-radius: 15px; border: none;">
+                <div class="card-body p-4">
+                    <h4 class="mt-3 fw-bold">Publier</h4>
+                    <p class="text-muted">Créez et partagez vos articles avec la communauté facilement.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow" style="border-radius: 15px; border: none;">
+                <div class="card-body p-4">
+                    <h4 class="mt-3 fw-bold">Catégories</h4>
+                    <p class="text-muted">Retrouvez les articles classés par thèmes selon vos intérêts.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow" style="border-radius: 15px; border: none;">
+                <div class="card-body p-4">
+                    <h4 class="mt-3 fw-bold">Commenter</h4>
+                    <p class="text-muted">Échangez avec les auteurs et la communauté via les commentaires.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center py-5" style="background: #f8f9fa; border-radius: 15px;">
+        <h3 class="fw-bold">Prêt à commencer ?</h3>
+        <p class="text-muted">Rejoignez notre communauté et commencez à publier dès aujourd'hui.</p>
+        <a href="/register" class="btn btn-primary btn-lg px-5" style="border-radius: 30px;">Créer un compte gratuit</a>
+    </div>
+</div>
+
+{% endblock %}
