@@ -1,11 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Article{% endblock %}
+{% block title %}Nouvel article{% endblock %}
 
 {% block body %}
-    <h1>Create new Article</h1>
+<div class="row justify-content-center mt-4">
+    <div class="col-md-7">
+        <div class="card shadow" style="border-radius: 15px; border: none; border-top: 4px solid #6b0f1a;">
+            <div class="card-body p-5">
+                <h2 class="fw-bold mb-4" style="color:#6b0f1a;">Créer un nouvel article</h2>
 
-    {{ include('article/_form.html.twig') }}
+                {{ form_start(form) }}
 
-    <a href="{{ path('app_article_index') }}">back to list</a>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Titre</label>
+                    {{ form_widget(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre de votre article'}}) }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Contenu</label>
+                    {{ form_widget(form.content, {'attr': {'class': 'form-control', 'rows': '6', 'placeholder': 'Écrivez votre article ici...'}}) }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Date de création</label>
+                    {{ form_widget(form.createdAt, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Catégorie</label>
+                    {{ form_widget(form.category, {'attr': {'class': 'form-select'}}) }}
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Auteur</label>
+                    {{ form_widget(form.author, {'attr': {'class': 'form-select'}}) }}
+                </div>
+
+                <button type="submit" class="btn w-100 py-2 fw-bold" style="background: linear-gradient(90deg, #6b0f1a, #b91c1c); color:#ffd700; border-radius:10px; font-size:1.1rem;">
+                    Publier l'article
+                </button>
+
+                {{ form_end(form) }}
+
+                <div class="text-center mt-3">
+                    <a href="{{ path('app_article_index') }}" style="color:#6b0f1a;">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
